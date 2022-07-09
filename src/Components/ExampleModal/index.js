@@ -17,6 +17,7 @@ function ExampleModal(props) {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
+            <p>{props.meaning}</p>
             <ul>
                 {props.examples.map( (e,index) => {
                     return <li key={index}>{e}</li>

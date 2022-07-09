@@ -29,6 +29,7 @@ function Home(props) {
     
     const [modalShow, setModalShow] = useState(false);
     const [modalWord, setModalWord] = useState('xyz');
+    const [modalMeaning, setModalMeaning] = useState('xyz')
     const [modalExample, setModalExample] = useState([]);  
 
     const navigate = useNavigate();
@@ -154,11 +155,12 @@ function Home(props) {
                             className="backcard"
                             >
                                 <div classname='eachcard'>
-                                <p >{x['meaning']}</p>
+                                <p >{x['meaning'].substring(0,100)+ (x['meaning'].length>100 ? "...":"")}</p>
                                 {x['examples'][0] ? <Button
                                 onClick={(e) => {
                                     setModalWord(x['word'].charAt(0).toUpperCase() + x['word'].slice(1));
                                     setModalExample(x['examples']);
+                                    setModalMeaning(x['meaning'])
                                     setModalShow(true);
                                     console.log(modalExample)
                                 }}
@@ -200,6 +202,7 @@ function Home(props) {
         show = {modalShow}
         word={modalWord}
         examples={modalExample}
+        meaning={modalMeaning}
         onHide = {() => setModalShow(false)}/>
         </>
     )
