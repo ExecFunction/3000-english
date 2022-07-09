@@ -136,8 +136,8 @@ function Home(props) {
                         </Flippy> */}
 
                         <ReactCardFlip isFlipped={flipped === x['word']}
-                        cardStyles={{"front":{"height" : 200},
-                                "back": {"height" : 200}}}
+                        cardStyles={{"front":{"height" : 250},
+                                "back": {"height" : 250}}}
                             flipDirection='horizontal'>
                             <div onClick={() => {
                                 setFlipped(x['word']);
@@ -179,11 +179,12 @@ function Home(props) {
                 }}>
                 <ReactPaginate
                 breakLabel="..."
-                nextLabel="next >"
+                nextLabel=">"
                 onPageChange={handlePageClick}
-                pageRangeDisplayed={3}
+                pageRangeDisplayed={2}
+                marginPagesDisplayed={1}
                 pageCount={pageCount}
-                previousLabel="< prev"
+                previousLabel="<"
                 renderOnZeroPageCount={null}
                 containerClassName={"pagination"}
                 previousLinkClassName={"pagination__link"}
